@@ -10,31 +10,30 @@ import s from "./Navbar.module.scss";
 
 const Navbar = () => {
   return (
-    <BrowserRouter>
+    
       <div className={s.links}>
-        <Link to="">
+        <Link to="/mypage">
           <BiUserCircle className={s.iconsNav} />
           Моя страница
         </Link>
-        <Link to="">
+        <Link to="/">
           <BiSearchAlt2 className={s.iconsNav} />
           Интересное
         </Link>
-        <Link to="">
+        <Link to="/messagepage">
           <TbMessageCircle className={s.iconsNav} />
           Мессенджер
         </Link>
-        <Link to="">
+        <Link to="/followspage">
           <FaUserFriends className={s.iconsNav} />
           Подписки
         </Link>
-        <Link to="">
+        <Link to="/followerspage">
           <FaUserFriends className={s.iconsNav} />
           Подписчики
         </Link>
         <div><BiExit className={s.iconsNav}/>Выход</div>
       </div>
-    </BrowserRouter>
   );
 };
 

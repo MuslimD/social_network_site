@@ -7,20 +7,16 @@
     a, div {
         text-decoration: none;
         font-size: x-large;
-        color: rgb(150, 150, 246);
+        color: rgb(83, 83, 255);
         width: 200px;
         padding: 10px;
     }
-
     a:hover, div:hover {
-        background-color: rgb(112, 112, 250);
+        background-color: rgb(71, 71, 255);
         border-radius: 10px;
         color: white;
     }
-
     .iconsNav {
         margin-right: 10px;
     }
-
-   
 }
