@@ -1,9 +1,12 @@
-import React from 'react';
+import React from "react";
+import Interes from "../interes/Interes";
 
 const Interesting = (props) => {
-    return (
-       <>khfbvhjbfh</>
-    );
+  return (
+    <>
+      <Interes />
+    </>
+  );
 };
 
 export default Interesting;

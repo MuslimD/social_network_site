@@ -1,9 +1,14 @@
 import React from 'react';
+import Follow from '../Follow/Follow';
 
 const Follows = (props) => {
     return (
-        <>hbfvgvug</>
+        <>
+        <Follow/>
+        </>
     );
 };
 
 export default Follows;
+
+
