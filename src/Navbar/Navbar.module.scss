@@ -1,22 +1,26 @@
 .links {
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  padding: 20px;
 
-    a, div {
-        text-decoration: none;
-        font-size: x-large;
-        color: rgb(83, 83, 255);
-        width: 200px;
-        padding: 10px;
-    }
-    a:hover, div:hover {
-        background-color: rgb(71, 71, 255);
-        border-radius: 10px;
-        color: white;
-    }
-    .iconsNav {
-        margin-right: 10px;
-    }
+  a,
+  div {
+    text-decoration: none;
+    font-size: x-large;
+    color: rgb(83, 83, 255);
+    width: 200px;
+    padding: 8px;
+    margin: 1px;
+  }
+  .iconsNav {
+    margin-right: 10px;
+  }
+  a:hover,
+  div:hover, .active{
+    background-color: rgb(71, 71, 255);
+    border-radius: 10px;
+    color: white;
+  }
+  
 }

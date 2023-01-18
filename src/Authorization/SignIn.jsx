@@ -16,12 +16,12 @@ const SignIn = () => {
     setPassword(e.target.value);
   };
 
-  return (
-    <form className={styles.card}>
-      <div className={styles.Register}>
-        <div className={styles.h1}>Вход</div>
+  return (<div className={styles.sign}>
+    <form>
+      
+        <div className={styles.sign_in}>Вход</div>
         <input
-          className={styles.inputText}
+          className={styles.input_login}
           type="text"
           value={login}
           placeholder="Имя пользователя"
@@ -29,7 +29,7 @@ const SignIn = () => {
         />
         <div />
         <input
-          className={styles.inputPassword}
+          className={styles.input_password}
           type="password"
           value={password}
           placeholder="Пароль"
@@ -37,12 +37,12 @@ const SignIn = () => {
         />
         <div />
         <button>Войти</button>
-        <Link className={styles.LinkUp} to="/signup">
+        <div className={styles.div_link}><Link to="/signup">
           {" "}
           Зарегистрироваться
-        </Link>
-      </div>
-    </form>
+        </Link></div>
+      
+    </form></div>
   );
 };
 

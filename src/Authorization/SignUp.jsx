@@ -17,11 +17,11 @@ const SignUp = () => {
   };
 
   return (
-    <form className={styles.card}>
-      <div className={styles.Register}>
-        <div className={styles.h1}>Регистрация</div>
+    <div className={styles.sign}>
+      <form>
+        <div className={styles.sign_up}>Регистрация</div>
         <input
-          className={styles.inputText}
+          className={styles.input_login}
           type="text"
           value={login}
           placeholder="Имя пользователя"
@@ -29,26 +29,19 @@ const SignUp = () => {
         />
         <div />
         <input
-          className={styles.inputPassword}
+          className={styles.input_password}
           type="password"
           value={password}
           placeholder="Пароль"
           onChange={handleSetPass}
         />
         <div />
-        <button
-          disabled={!login || !password ? true : false}
-          className={styles.buttonUp}
-          type="submit"
-        >
-          Зарегистрироваться
-        </button>
-        <Link className={styles.LinkUp} to="/">
-          {" "}
-          <div className={styles.h3Log}> Войти</div>
-        </Link>
-      </div>
-    </form>
+        <button>Зарегистрироваться</button>
+        <div className={styles.div_link}>
+          <Link to="/"> Войти</Link>
+        </div>
+      </form>
+    </div>
   );
 };
 

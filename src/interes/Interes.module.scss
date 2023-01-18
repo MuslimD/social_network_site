@@ -1,0 +1,66 @@
+.wrapper {
+  width: 100%;
+  padding: 50px;
+  background-color: #f3f3f3;
+  border-radius: 20px;
+}
+
+.block {
+  border-radius: 20px;
+  width: max-content;
+  margin-left: 140px;
+  padding: 20px;
+  background-color: white;
+  margin-bottom: 20px;
+
+  .user {
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50px;
+      border: 1px solid black;
+    }
+
+    p {
+        font-size: 25px;
+    }
+  }
+
+  .post {
+    padding: 20px;
+
+    img {
+        width: 800px;
+        border-radius: 15px;
+    }
+
+    p {
+        font-size: 30px;
+        margin: 0;
+        margin-bottom: 10px;
+        
+    }
+  }
+
+  .buttons {
+    margin-top: -10px;
+    margin-left: 25px;
+    font-size: 25px;
+    display: flex;
+    gap: 10px;
+    width: 60px;
+
+    .like {
+        cursor: pointer;
+    }
+
+    .comment {
+        cursor: pointer;
+    }
+  }
+}

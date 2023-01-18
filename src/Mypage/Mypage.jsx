@@ -1,8 +1,11 @@
 import React from 'react';
+import Mypagi from '../Mypagi/Mypagi';
 
 const Mypage = (props) => {
     return (
-        <div></div>
+        <>
+        <Mypagi/>
+        </>
     );
 };
 
