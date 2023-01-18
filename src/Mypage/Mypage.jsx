@@ -2,7 +2,7 @@ import React from 'react';
 
 const Mypage = (props) => {
     return (
-        <>kjfbvhjb</>
+        <div></div>
     );
 };
 
