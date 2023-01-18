@@ -5,7 +5,7 @@ const initialState = {
   upmessage: null,
   signin: false,
   signup: false,
-  token: null,
+  token: "null",
   login: null,
   avatar: null,
 
