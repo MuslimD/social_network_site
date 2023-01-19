@@ -14,14 +14,16 @@ import styles from "./App.module.scss";
 
 function App() {
   const token = useSelector((state) => state.userSlice.token);
+  const base64 = require("base-64");
   if (token) {
+    const id = base64.decode(token.split(".")[1]).split('"')[3];
     return (
       <>
         <Header />
         <div className={styles.navroute}>
           <Navbar />
           <Routes>
-            <Route path="/mypage" element={<Mypage />} />
+            <Route path="/mypage" element={<Mypage userid={id} />} />
             <Route path="/" element={<Interesting />} />
             <Route path="/messagepage" element={<Message />} />
             <Route path="/followerspage" element={<Followers />} />
