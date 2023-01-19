@@ -1,23 +1,25 @@
 import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYzgyNDZhMmM2MTNiZDM0YTBkYTliZiIsImlhdCI6MTY3NDExMTA4NiwiZXhwIjoxNjc0MTE4Mjg2fQ.SYRWCWn5R9JFqN6BNlm9GuJDpaK_1AjkqUQQUyF61T0",
+  login: null,
+  avatar: null,
+  aboutme: null,
   inmessage: null,
   upmessage: null,
   signin: false,
   signup: false,
-  token: "null",
-  login: null,
-  avatar: null,
-
+  userload: false,
+  usererror: null,
 };
 
 export const removetok = createAction("removetok");
 
 export const getuser = createAsyncThunk(
   "get/user",
-  async ({ id }, thunkApi) => {
+  async ({ userid }, thunkApi) => {
     try {
-      const res = await fetch("http://localhost:4000/users/" + id);
+      const res = await fetch("http://localhost:4000/users/" + userid);
       const user = await res.json(res);
       if (user.error) {
         return thunkApi.rejectWithValue(user.error);
@@ -107,14 +109,25 @@ const applicationSlice = createSlice({
         state.inmessage = null;
         state.signin = false;
         state.token = action.payload.token;
-        console.log(action.payload);
       })
       .addCase(removetok, (state) => {
         state.token = null;
-      }).addCase(getuser.fulfilled, ((state, action) => {
-        state.login = action.payload.login
-        state.avatar = action.payload.avatar
-      }))
+      })
+      .addCase(getuser.fulfilled, (state, action) => {
+        state.login = action.payload.login;
+        {action.payload.avatar ? (state.avatar = action.payload.avatar) : (state.avatar = null)}
+        {action.payload.aboutme ? (state.aboutme = action.payload.aboutme) : (state.aboutme = null);}
+        state.userload = false;
+        state.usererror = null;
+      })
+      .addCase(getuser.pending, (state) => {
+        state.userload = true;
+        state.usererror = null;
+      })
+      .addCase(getuser.rejected, (state, action) => {
+        state.userload = false;
+        state.usererror = action.payload;
+      });
   },
 });
 
