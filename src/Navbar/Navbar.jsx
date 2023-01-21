@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { BiUserCircle } from "react-icons/bi";
 import { TbMessageCircle } from "react-icons/tb";
@@ -8,7 +8,7 @@ import { BiExit } from "react-icons/bi";
 import s from "./Navbar.module.scss";
 
 const Navbar = () => {
-  const isactive = ({ isActive }) => isActive && s.active;
+  const isactive = ({ isActive }) => (isActive ? s.active : "");
 
   return (
     <div className={s.links}>

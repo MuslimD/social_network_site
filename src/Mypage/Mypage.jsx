@@ -1,55 +1,30 @@
-import React, { useEffect } from "react";
-import s from "./Mypage.module.scss";
-import post from "./image/post.png";
-import fakeavatar from "./image/avatar.png";
-import { BiLike } from "react-icons/bi";
-import { BiCommentDetail } from "react-icons/bi";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BsFillPenFill } from "react-icons/bs";
+import Comments from "../Comments/Comments";
 import { getuser } from "../features/userSlice";
+import s from "./Mypage.module.scss";
+import UserInfo from "./UserInfo/UserInfo";
+import UserPosts from "./UserPosts/UserPosts";
+import { BiArrowBack } from "react-icons/bi";
 
-const Mypage = ({userid}) => {
-  const avatar = useSelector((state) => state.userSlice.avatar);
-  const login = useSelector((state) => state.userSlice.login);
-  const aboutme = useSelector((state) => state.userSlice.aboutme);
-  const dispatch = useDispatch()
-useEffect(() => {
-dispatch(getuser({userid}))
-})
+const Mypage = ({ userid }) => {
+  const [idCom, setIdCom] = useState("");
+ 
   return (
     <div className={s.wrapper}>
-      <div className={s.content}>
-        <div className={s.text}>Описание поста</div>
-        <img src={post} alt="Фото поста" />
-        <div className={s.buttons}>
-          <div className={s.like}>
-            <BiLike />
-          </div>
-          <div className={s.comment}>
-            <BiCommentDetail />
-          </div>
+       {idCom === "" ? (
+        <UserPosts userid={userid} setIdCom={setIdCom} />
+      ) : (
+        <div className={s.wrapper_left}>
+
+          <button className={s.back_toposts} onClick={() => setIdCom("")}>
+            <BiArrowBack />
+            НАЗАД
+          </button>
+          <Comments idCommentaries={idCom} userid={userid}/>
         </div>
-      </div>
-      <div className={s.user}>
-        <img className={s.user_avatar}
-          src={avatar ? `http://localhost:4000/avatar/${avatar}` : fakeavatar}
-          alt="Аватар пользователя"
-        />
-        <div className={s.name}>Имя: {login}</div>
-        {aboutme ? (
-          <div className={s.aboutme_text}>
-            Обо мне: {aboutme}
-            <button>
-              <BsFillPenFill />
-            </button>
-          </div>
-        ) : (
-          <div className={s.aboutme_input}>
-            <input placeholder="Обо мне..." type="text" />
-            <button>+</button>
-          </div>
-        )}
-      </div>
+      )}
+      <UserInfo userid={userid} />
     </div>
   );
 };

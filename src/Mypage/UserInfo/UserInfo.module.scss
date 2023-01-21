@@ -1,0 +1,125 @@
+.user {
+  background-color: white;
+  border-radius: 20px;
+  width: 25%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0 20px 2%;
+  .add_avatar {
+    border-radius: 4px;
+    width: 3vw;
+    height: 2vw;
+    background-color: rgb(71, 71, 255);
+    border: 0px;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 15.5vw;
+    margin-left: 3vw;
+    font-size: 1.5vw;
+  }
+  .change_cancelation,
+  .changes_button {
+    margin-left: 6%;
+    width: 41%;
+    border: 0px solid;
+    border-radius: 5px;
+    background-color: rgb(71, 71, 255);
+    color: white;
+    margin-top: 0.5vw;
+    margin-bottom: 1vw;
+    height: 1.7vw;
+    cursor: pointer;
+  }
+  .user_avatar {
+    object-fit: cover;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 8%;
+    margin-top: 2vw;
+  }
+  .name {
+    font-size: 1.5vw;
+    text-align: center;
+    width: max-content;
+    margin-top: 2vw;
+  }
+
+  input::placeholder {
+    font-size: 1.1vw;
+  }
+  .aboutme_text {
+    margin: 2vw 10% 2vw 10%;
+
+    font-size: 1.3vw;
+  }
+  input {
+    font-size: 1.2vw;
+    text-align: center;
+    width: 84%;
+    margin-top: 1vw;
+    margin-left: 6.5%;
+    height: max-content;
+  }
+  .create_aboutme {
+    width: 100%;
+  }
+
+  .pen_change {
+    font-size: 1.5vw;
+    margin-left: 0.5vw;
+    cursor: pointer;
+  }
+  .hiden_input{
+    opacity: 0;
+    height: 0;
+    width: 0;
+    line-height: 0;
+    padding: 0;
+  }
+  
+}
+.preloader {
+  display: block;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 30px auto;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #337AB7;
+  animation: preloader-5-spin 2s linear infinite;
+}
+.preloader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #BFE2FF;
+  animation: preloader-5-spin 3s linear infinite;
+}
+.preloader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #337AB7;
+  animation: preloader-5-spin 1.5s linear infinite;
+}
+@keyframes preloader-5-spin {
+  0%   {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
