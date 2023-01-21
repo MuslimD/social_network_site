@@ -26,8 +26,8 @@ function App() {
             <Route path="/mypage" element={<Mypage userid={id} />} />
             <Route path="/" element={<Interesting />} />
             <Route path="/messagepage" element={<Message />} />
-            <Route path="/followerspage" element={<Followers />} />
-            <Route path="/followspage" element={<Follows />} />
+            <Route path="/followerspage" element={<Followers userid={id} />} />
+            <Route path="/followspage" element={<Follows userid={id} />} />
           </Routes>
         </div>
       </>
