@@ -1,46 +1,19 @@
 .wrapper {
   border-radius: 20px;
   width: 100%;
-  background-color: #f3f3f3;
-  padding: 50px;
+  background-color: #d7d7d7;
   display: flex;
-  gap: 31px;
+  margin-right: 1%;
 
-  .content {
-    width: 70%;
-    background-color: white;
-    padding: 20px;
-    border-radius: 20px;
+  .wrapper_left {
+    display: flex;
+    flex-direction: column;
+    margin: 1vw 0% 1vw 2%;
+    width: 69%;
+    max-height: 37vw;
 
-    .text {
-        font-size: 30px;
-        margin-left: 20px;
-    }
-
-    img {
-        margin-top: 20px;
-        width: 700px;
-        border-radius: 15px;
-        margin-bottom: 10px;
-        margin-left: 20px;
-    }
-
-    .buttons {
-        margin-left: 20px;
-        font-size: 25px;
-        display: flex;
-        gap: 10px;
-        width: 60px;
-    
-        .like {
-            cursor: pointer;
-        }
-    
-        .comment {
-            cursor: pointer;
-        }
-      }
   }
+<<<<<<< HEAD
 
   .user {
     background-color: white;
@@ -69,5 +42,17 @@
         height: max-content;
         margin-top: 40px;
     }
+=======
+  .back_toposts {
+    background-color: rgb(71, 71, 255);
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    height: 2.6vw;
+    width: 10vw;
+    font-size: 1.3vw;
+    margin: 1vw 0 1vw 0;
+    cursor: pointer;
+>>>>>>> 6dce5ee3d7925991b5cfeceed445e5a733ffa7fd
   }
 }

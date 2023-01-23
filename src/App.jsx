@@ -7,7 +7,7 @@ import Header from "./Header/Header";
 import Navbar from "./Navbar/Navbar";
 import SignUp from "./Authorization/SignUp";
 import Mypage from "./Mypage/Mypage";
-import Message from "./Message/Message";
+import Messager from "./Messager/Messager";
 import Followers from "./Followers/Followers";
 import Follows from "./Follows/Follows";
 import styles from "./App.module.scss";
@@ -25,9 +25,9 @@ function App() {
           <Routes>
             <Route path="/mypage" element={<Mypage userid={id} />} />
             <Route path="/" element={<Interesting />} />
-            <Route path="/messagepage" element={<Message />} />
-            <Route path="/followerspage" element={<Followers />} />
-            <Route path="/followspage" element={<Follows />} />
+            <Route path="/messagepage" element={<Messager  userid={id}/>} />
+            <Route path="/followerspage" element={<Followers userid={id} />} />
+            <Route path="/followspage" element={<Follows userid={id} />} />
           </Routes>
         </div>
       </>
