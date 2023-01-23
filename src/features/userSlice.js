@@ -1,8 +1,7 @@
 import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  token:
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYzgyNDZhMmM2MTNiZDM0YTBkYTliZiIsImlhdCI6MTY3NDIzNjcwNSwiZXhwIjoxNjc0MjQzOTA1fQ.VpZid23iLhNv_-3Wi0aAV-eaCSx-bgBZhUIZHq9xMJg",
+  token: localStorage.getItem("token"),
   login: null,
   avatar: null,
   aboutme: null,
@@ -151,6 +150,19 @@ const applicationSlice = createSlice({
   reducers: {},
   extraReducers: (buider) => {
     buider
+    .addCase(authUsers.rejected, (state, action) => {
+      state.inmessage = action.payload;
+      state.signin = false;
+    })
+    .addCase(authUsers.pending, (state) => {
+      state.signin = true;
+      state.inmessage = null;
+    })
+    .addCase(authUsers.fulfilled, (state, action) => {
+      state.inmessage = null;
+      state.signin = false;
+      state.token = action.payload.token;
+    })
       .addCase(createUsers.rejected, (state, action) => {
         state.upmessage = action.payload;
         state.signup = false;
@@ -162,19 +174,6 @@ const applicationSlice = createSlice({
       .addCase(createUsers.fulfilled, (state, action) => {
         state.upmessage = action.payload;
         state.signup = false;
-      })
-      .addCase(authUsers.rejected, (state, action) => {
-        state.inmessage = action.payload;
-        state.signin = false;
-      })
-      .addCase(authUsers.pending, (state) => {
-        state.signin = true;
-        state.inmessage = null;
-      })
-      .addCase(authUsers.fulfilled, (state, action) => {
-        state.inmessage = null;
-        state.signin = false;
-        state.token = action.payload.token;
       })
       .addCase(removetok, (state) => {
         state.token = null;

@@ -1,0 +1,12 @@
+.chats::-webkit-scrollbar {
+  display: none;
+}
+.chats {
+  display: flex;
+  flex-direction: column;
+  margin: 1vw 0% 1vw 2%;
+  width: 30%;
+  max-height: 37vw;
+  overflow: scroll;
+  
+}

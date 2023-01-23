@@ -7,25 +7,22 @@ const SignIn = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-
-  const handleSetName = (e) => {
-    setLogin(e.target.value);
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    dispatch(authUsers({ login, password }));
   };
+  
 
-  const handleSetPass = (e) => {
-    setPassword(e.target.value);
-  };
-
-  return (<div className={styles.sign}>
-    <form>
-      
+  return (
+    <div className={styles.sign}>
+      <form onSubmit={(e) => handleSignIn(e)}>
         <div className={styles.sign_in}>Вход</div>
         <input
           className={styles.input_login}
           type="text"
           value={login}
           placeholder="Имя пользователя"
-          onChange={handleSetName}
+          onChange={(e) => setLogin(e.target.value)}
         />
         <div />
         <input
@@ -33,16 +30,15 @@ const SignIn = () => {
           type="password"
           value={password}
           placeholder="Пароль"
-          onChange={handleSetPass}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <div />
         <button>Войти</button>
-        <div className={styles.div_link}><Link to="/signup">
-          {" "}
-          Зарегистрироваться
-        </Link></div>
-      
-    </form></div>
+        <div className={styles.div_link}>
+          <Link to="/signup"> Регистрация</Link>
+        </div>
+      </form>
+    </div>
   );
 };
 
