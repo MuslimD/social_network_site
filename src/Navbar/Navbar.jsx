@@ -6,10 +6,17 @@ import { BiSearchAlt2 } from "react-icons/bi";
 import { FaUserFriends } from "react-icons/fa";
 import { BiExit } from "react-icons/bi";
 import s from "./Navbar.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { removetok } from "../features/userSlice";
 
 const Navbar = () => {
+  const token = useSelector((state) => state.userSlice.token);
+  const dispatch = useDispatch()
   const isactive = ({ isActive }) => (isActive ? s.active : "");
-
+  const clearToken = () => {
+    localStorage.clear(token);
+    dispatch(removetok());
+  };
   return (
     <div className={s.links}>
       <NavLink to="/mypage" className={isactive}>
@@ -32,7 +39,7 @@ const Navbar = () => {
         <FaUserFriends className={s.iconsNav} />
         Подписчики
       </NavLink>
-      <div>
+      <div onClick={clearToken}> 
         <BiExit className={s.iconsNav} />
         Выход
       </div>

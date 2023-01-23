@@ -38,7 +38,7 @@ const SignUp = () => {
         <div />
         <button>Зарегистрироваться</button>
         <div className={styles.div_link}>
-          <Link to="/"> Войти</Link>
+          <Link to="/"> Вход</Link>
         </div>
       </form>
     </div>

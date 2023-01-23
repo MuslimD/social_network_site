@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useScrollTo } from "react-use-window-scroll";
 import s from "./Comments.module.scss";
 import {
   createComment,
@@ -8,12 +9,14 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import fakeavatar from "../image/avatar.png";
 const Comments = ({ idCommentaries, userid }) => {
+  const scrollTo = useScrollTo();
   const [addCom, setAddCom] = useState("");
   const postsload = useSelector((state) => state.postsSlice.postsload);
   const comments = useSelector((state) => state.postsSlice.comments);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getcommentspostsid({ postsid: idCommentaries }));
+ 
   }, [dispatch]);
 
   const addComment = () => {
@@ -21,7 +24,6 @@ const Comments = ({ idCommentaries, userid }) => {
       dispatch(createComment({ idCommentaries, userid, commentText: addCom }));
     }
   };
-  
 
   return postsload ? (
     <div className={s.preloader}></div>
@@ -29,8 +31,8 @@ const Comments = ({ idCommentaries, userid }) => {
     <>
       {comments.length < 1 ? (
         <div>К этому посту нет комментариев</div>
-      ) : (
-        <div className={s.comments}>
+      ) : ( 
+        <div onClick={() => scrollTo(0, 0)}  className={s.comments}>
           {comments.map((item) => {
             return (
               <div className={s.comment}>
@@ -56,7 +58,13 @@ const Comments = ({ idCommentaries, userid }) => {
           onChange={(e) => setAddCom(e.target.value)}
           className={s.add_com}
         />
-        <button onClick={addComment} className={s.add_com_click}>
+        <button
+          onClick={() => {
+            setAddCom("");
+            addComment();
+          }}
+          className={s.add_com_click}
+        >
           добавить
         </button>
       </div>
