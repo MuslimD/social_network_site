@@ -34,7 +34,8 @@
     font-size: 130%;
     border: 0ch;
     border-radius: 5px;
-
+    display: flex;
+    align-items: center;
     background-color: white;
     margin-left: 30%;
     margin-top: 30px;
@@ -45,7 +46,7 @@
     width: 40%;
   text-decoration: none;
   color: rgb(83, 83, 255);
-  margin-left: 15%;
+  margin-left: 35%;
 }
 
 button {
@@ -58,6 +59,14 @@ button {
   margin-left: 30%;
   margin-top: 30px;
 }
+
+.eye1 {
+  position: absolute;
+  margin-left: 490px;
+  margin-top: 37px;
+}
+
+
 }
 
 
