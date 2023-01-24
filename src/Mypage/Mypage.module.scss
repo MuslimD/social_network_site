@@ -40,13 +40,44 @@
     justify-content: center;
     z-index: -1;
     position: relative;
-    
+
     .backgroundImg {
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
       width: 100%;
-      height: 35vh;
+      height: 30vh;
       object-fit: cover;
+    }
+    .photoCase {
+      box-sizing: border-box;
+      position: absolute;
+      background-color: white;
+      left: 5%;
+      bottom: -11%;
+      z-index: 10;
+      display: flex;
+      border: 3px solid white;
+      border-radius: 50%;
+      object-fit: contain;
+      height: 150px;
+      width: 150px;
+      cursor: default;
+
+      .editUserPhoto {
+        position: absolute;
+        left: 120px;
+        top: 100px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: white;
+        cursor: pointer;
+      }
+
+      .photo {
+        width: 100%;
+        border-radius: 50%;
+      }
     }
     .editBackground {
       box-sizing: border-box;
@@ -54,19 +85,65 @@
       background-color: white;
       right: 5%;
       bottom: 10%;
-      width: 100px;
-      height: 30px;
+      padding: 5px 10px;
       border-radius: 10px;
       display: flex;
       align-items: center;
-      font-size: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
 
       .upload {
-        
+        width: 20px;
+        height: 20px;
+      }
+      .uploadText {
+        font-size: 9px;
       }
     }
   }
   .emptyBlock {
-    height: 13vh;
+    height: 16vh;
+    box-shadow: 0 2px 3px 0.1px gray;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    
+    .info {
+      width: max-content;
+      .name {
+        margin-bottom: 10px;
+        color: rgb(69, 69, 69);
+      }
+      .aboutme {
+        color: #5a5a58;
+        font-size: 12px;
+      }
+    }
+    .editName {
+      display: flex;
+      box-sizing: border-box;
+      background-color: #f6f7f8;
+      right: 5%;
+      bottom: 10%;
+      padding: 5px 10px;
+      border-radius: 10px;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+
+      .edit {
+        width: 20px;
+        height: 20px;
+      }
+      .editText {
+        font-size: 10px;
+      }
+    }
   }
 }

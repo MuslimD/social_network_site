@@ -1,15 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import Input from "./Input";
+
+import { removetok } from "../features/userSlice";
 import { BiUserCircle } from "react-icons/bi";
 import { TbMessageCircle } from "react-icons/tb";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { FaUserFriends } from "react-icons/fa";
 import { BiExit } from "react-icons/bi";
+import { FaFacebookMessenger } from "react-icons/fa";
+import { IoIosMoon } from "react-icons/io";
+
 import s from "./Navbar.module.scss";
 import "../App.css";
-import { useDispatch, useSelector } from "react-redux";
-import { removetok } from "../features/userSlice";
-import { FaFacebookMessenger } from "react-icons/fa";
 
 const Navbar = () => {
   const token = useSelector((state) => state.userSlice.token);

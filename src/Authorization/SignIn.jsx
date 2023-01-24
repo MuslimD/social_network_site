@@ -3,7 +3,10 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { authUsers } from "../features/userSlice";
 import styles from "./authUser.module.scss";
+import { RxEyeClosed } from "react-icons/rx";
+import { AiOutlineEye } from "react-icons/ai";
 const SignIn = () => {
+  const [inputType, setInputType] = useState("password")
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -11,7 +14,7 @@ const SignIn = () => {
     e.preventDefault();
     dispatch(authUsers({ login, password }));
   };
-  
+  console.log();
 
   return (
     <div className={styles.sign}>
@@ -25,9 +28,13 @@ const SignIn = () => {
           onChange={(e) => setLogin(e.target.value)}
         />
         <div />
+        <div  className={styles.eye1}>
+        {inputType ? <RxEyeClosed onClick={() => setInputType(false)}/> :  <AiOutlineEye onClick={() => setInputType(true)}/>
+}
+        </div>
         <input
           className={styles.input_password}
-          type="password"
+          type={inputType ? "text": "password"}
           value={password}
           placeholder="Пароль"
           onChange={(e) => setPassword(e.target.value)}

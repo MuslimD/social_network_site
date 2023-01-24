@@ -7,10 +7,11 @@ import UserInfo from "./UserInfo/UserInfo";
 import UserPosts from "./UserPosts/UserPosts";
 import { BiArrowBack } from "react-icons/bi";
 import { AiOutlineCloudUpload } from "react-icons/ai";
+import { RiEditBoxLine } from "react-icons/ri";
 
 const Mypage = ({ userid }) => {
   const [idCom, setIdCom] = useState("");
- 
+
   return (
     // <div className={s.wrapper}>
     //    {idCom === "" ? (
@@ -28,17 +29,33 @@ const Mypage = ({ userid }) => {
     //   <UserInfo userid={userid} />
     // </div>
 
-
     <div className={s.myPage}>
       <div className={s.backgroundCase}>
-        <img className={s.backgroundImg} src={require("./img/background.jpg")} alt="" />
+        <div className={s.photoCase}><img className={s.photo} src={require("./img/gigachad.webp")} alt="" />
+        <AiOutlineCloudUpload className={s.editUserPhoto} />
+        </div>
+        <img
+          className={s.backgroundImg}
+          src={require("./img/background.jpg")}
+          alt=""
+        />
         <div className={s.editBackground}>
           <AiOutlineCloudUpload className={s.upload} />
+          <div className={s.uploadText}>Изменить фон</div>
         </div>
       </div>
-      <div className={s.emptyBlock}></div>
+      <div className={s.emptyBlock}>
+        <div className={s.info}>
+          <div className={s.name}>Артур Шелбаев</div>
+          <div className={s.aboutme}>Фронтендер</div>
+        </div>
+        <div className={s.editName}>
+          <div className={s.edit}><RiEditBoxLine /></div>
+          <div className={s.editText}>Изменить данные</div>
+          </div>
+      </div>
     </div>
-  )
+  );
 };
 
 export default Mypage;

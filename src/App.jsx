@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Interesting from "./Interesting/Interesting";
 import SignIn from "./Authorization/SignIn";
-import Header from "./Header/Header";
 import Navbar from "./Navbar/Navbar";
 import SignUp from "./Authorization/SignUp";
 import Mypage from "./Mypage/Mypage";
