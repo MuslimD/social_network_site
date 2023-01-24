@@ -17,10 +17,18 @@
     margin-right: 10px;
   }
   a:hover,
-  div:hover, .active{
+  .iconsNav:hover, .active{
     background-color: rgb(71, 71, 255);
     border-radius: 10px;
     color: white;
   }
   
+  .logo {
+    display: flex;
+
+    .meet {
+      height: 35px;
+      margin-top: 9px;
+    }
+  }
 }

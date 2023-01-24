@@ -11,7 +11,7 @@ const SignIn = () => {
     e.preventDefault();
     dispatch(authUsers({ login, password }));
   };
-  
+  console.log();
 
   return (
     <div className={styles.sign}>

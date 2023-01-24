@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Interesting from "./Interesting/Interesting";
 import SignIn from "./Authorization/SignIn";
-import Header from "./Header/Header";
 import Navbar from "./Navbar/Navbar";
 import SignUp from "./Authorization/SignUp";
 import Mypage from "./Mypage/Mypage";
@@ -19,7 +18,6 @@ function App() {
     const id = base64.decode(token.split(".")[1]).split('"')[3];
     return (
       <>
-        <Header />
         <div className={styles.navroute}>
           <Navbar />
           <Routes>
@@ -36,7 +34,6 @@ function App() {
   if (!token)
     return (
       <>
-        <Header />
         <Routes>
           <Route path="/" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
