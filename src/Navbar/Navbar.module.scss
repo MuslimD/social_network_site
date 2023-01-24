@@ -1,34 +1,63 @@
-.links {
+.navbar {
+  width: 20%;
   display: flex;
   flex-direction: column;
-  width: 20%;
-  padding: 20px;
+  align-items: center;
+  box-sizing: border-box;
 
-  a,
-  div {
+  .logoCase {
+    color: #53627c;
     text-decoration: none;
-    font-size: x-large;
-    color: rgb(83, 83, 255);
-    width: 200px;
-    padding: 8px;
-    margin: 1px;
-  }
-  .iconsNav {
-    margin-right: 10px;
-  }
-  a:hover,
-  .iconsNav:hover, .active{
-    background-color: rgb(71, 71, 255);
-    border-radius: 10px;
-    color: white;
-  }
-  
-  .logo {
     display: flex;
+    align-items: center;
+    gap: 10px;
+    width: max-content;
+    margin: 20px;
+    width: 100%;
+    padding: 0 30px;
+    box-sizing: border-box;
 
-    .meet {
-      height: 35px;
-      margin-top: 9px;
+    .logo {
+      color: #377dff;
+      width: 40px;
+      height: 40px;
+    }
+
+    .name {
+      font-weight: 700;
+      font-size: 20px;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    padding: 20px;
+
+    a, 
+    div {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600px;
+      color: #53627c;
+      width: 180px;
+      padding: 12px 8px;
+      margin: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .iconsNav {
+      width: 25px;
+      height: 25px;
+    }
+    a:hover,
+    div:hover,
+    .active {
+      background-color: #4a5e7a;
+      border-radius: 10px;
+      color: white;
     }
   }
 }

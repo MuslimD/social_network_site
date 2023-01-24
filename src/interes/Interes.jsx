@@ -15,7 +15,7 @@ const Interes = () => {
         </div>
         <div className={s.post}>
           <p>Описание поста</p>
-          <img src={post} alt="" />
+          <img className={s.postImg} src={post} alt="" />
         </div>
         <div className={s.buttons}>
             <div className={s.like}><BiLike/></div>
