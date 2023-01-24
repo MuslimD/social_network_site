@@ -15,6 +15,7 @@ const UserPosts = ({ userid, setIdCom }) => {
   }, [dispatch]);
 
   return (
+    <div className={s.userPosts}>
     <div className={s.wrapper_left}>
       
       <div>
@@ -50,6 +51,7 @@ const UserPosts = ({ userid, setIdCom }) => {
           </div>
         );
       })}
+    </div>
     </div>
   );
 };

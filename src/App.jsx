@@ -19,7 +19,6 @@ function App() {
     const id = base64.decode(token.split(".")[1]).split('"')[3];
     return (
       <>
-        <Header />
         <div className={styles.navroute}>
           <Navbar />
           <Routes>
@@ -36,7 +35,6 @@ function App() {
   if (!token)
     return (
       <>
-        <Header />
         <Routes>
           <Route path="/" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />

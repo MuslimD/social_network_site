@@ -1,5 +1,39 @@
-.wrapper {
-    padding: 20px;
+.header {
+    padding: 10px 30px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    .logoCase {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .logo {
+            color: #377dff;
+            width: 30px;
+            height: 30px;
+        }
+        .name {
+            font-weight: 700;
+        }
+    }
+    .user {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .imgCase {
+            display: flex;
+            align-items: center;
+
+            .img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .username {
+
+        }
+    }
 }
