@@ -1,7 +1,7 @@
 import React from 'react';
 import Follow from '../Follow/Follow';
 
-const Followers = (props) => {
+const Followers = ({ userid }) => {
     return (
       <>
       <Follow/>
