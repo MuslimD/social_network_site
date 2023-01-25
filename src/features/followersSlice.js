@@ -35,6 +35,7 @@ const followersSlice = createSlice({
             .addCase(followersget.rejected, (state, action) => {
                 state.followersErr = action.payload
                 state.followersLoad = false
+                console.log(action.payload);
             }).addCase(followersget.pending, (state) => {
                 state.followersErr = null
                 state.followersLoad = true
@@ -42,6 +43,7 @@ const followersSlice = createSlice({
                 state.followers = action.payload.followers
                 state.followersErr = null
                 state.followersLoad = false
+                console.log(action.payload.followers);
             })
 
     },

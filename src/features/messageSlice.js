@@ -11,7 +11,7 @@ export const getmessages = createAsyncThunk(
   "get/message",
   async ( {chatsId}, thunkApi) => {
     try {
-      const res = await fetch(`http://localhost:4000/messages/${chatsId}`);
+      const res = await fetch("http://localhost:4000/messages/" + chatsId);
       const messages = await res.json(res);
       if (messages.error) {
         return thunkApi.rejectWithValue(messages);
@@ -92,12 +92,13 @@ const messageSlice = createSlice({
       })
       .addCase(getmessages.rejected, (state, action) => {
         state.messageerrr = action.payload;
-        state.messageload = false;
+        state.messageload = false
       })
       .addCase(getmessages.fulfilled, (state, action) => {
         state.messageload = false;
         state.messageerrr = null;
         state.messages = action.payload;
+       
       }) .addCase(getchats.pending, (state) => {
         state.messageload = true;
         state.messageerrr = null;
