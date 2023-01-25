@@ -1,24 +1,26 @@
-import {  createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  follows: []
+  follows: [],
+  followsErr: null,
+  followsLoad: false,
 };
 
-// export const getmessages = createAsyncThunk(
-//   "get/message",
-//   async ( {chatsId}, thunkApi) => {
-//     try {
-//       const res = await fetch(`http://localhost:4000/messages/${chatsId}`);
-//       const messages = await res.json(res);
-//       if (messages.error) {
-//         return thunkApi.rejectWithValue(messages);
-//       }
-//       return thunkApi.fulfillWithValue(messages);
-//     } catch (error) {
-//       return thunkApi.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const followsget = createAsyncThunk(
+  "get/follows",
+  async ({ userid }, thunkApi) => {
+    try {
+      const res = await fetch(`http://localhost:4000/follows/${userid}`);
+      const follows = await res.json(res);
+      if (follows.error) {
+        return thunkApi.rejectWithValue(follows.error);
+      }
+      return thunkApi.fulfillWithValue(follows);
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
 
 
 
@@ -30,8 +32,18 @@ const followsSlice = createSlice({
   extraReducers: (buider) => {
     buider
 
-      .addCase()
-  
+      .addCase(followsget.rejected, (state, action) => {
+        state.followsErr = action.payload
+        state.followsLoad = false
+      }).addCase(followsget.pending, (state) => {
+        state.followsLoad = true
+        state.followsErr = null
+      }).addCase(followsget.fulfilled, (state, action) => {
+        state.follows = action.payload.follows
+        state.followsErr = null
+        state.followsLoad = false
+      })
+
   },
 });
 
