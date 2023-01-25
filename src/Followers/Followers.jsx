@@ -7,7 +7,6 @@ import s from "./Followers.module.scss";
 
 const Followers = ({ userid }) => {
   const followers = useSelector((state) => state.followersSlice.followers);
-  console.log(followers);
   const dispatch = useDispatch();
 
   useEffect(() => {
