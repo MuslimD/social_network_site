@@ -18,7 +18,6 @@ const Mypage = ({ userid }) => {
     //     <UserPosts userid={userid} setIdCom={setIdCom} />
     //   ) : (
     //     <div className={s.wrapper_left}>
-
     //       <button className={s.back_toposts} onClick={() => setIdCom("")}>
     //         <BiArrowBack />
     //         НАЗАД
