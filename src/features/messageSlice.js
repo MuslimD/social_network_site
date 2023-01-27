@@ -1,11 +1,15 @@
 import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  chatsUserId: null,
+  chatsId: "",
   chats: [],
   messages: [],
   messageload: false,
   messageerrr: null,
 };
+
+export const writeUser = createAction("writeuser")
 
 export const getmessages = createAsyncThunk(
   "get/message",
@@ -39,53 +43,68 @@ export const getchats = createAsyncThunk(
   }
 );
 
-// export const getcommentspostsid = createAsyncThunk(
-//     "get/comments/postsid",
-//     async ({ postsid }, thunkApi) => {
-//       try {
-//         const res = await fetch("http://localhost:4000/comments/" + postsid);
-//         const comments = await res.json(res);
-//         if (comments.error) {
-//           return thunkApi.rejectWithValue(comments.error);
-//         }
-//         return thunkApi.fulfillWithValue(comments);
-//       } catch (error) {
-//         return thunkApi.rejectWithValue(error.message);
-//       }
-//     }
-//   );
 
-
-// export const createComment = createAsyncThunk(
-//   "post/comment",
-//   async ({ idCommentaries, userid , commentText}, thunkApi) => {
-//     try {
-//       const res = await fetch("http://localhost:4000/comments/" + idCommentaries, {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({ userid, commentText }),
-//       });
-//       const comment = await res.json(res)
-//       return thunkApi.fulfillWithValue(comment);
+export const createChat = createAsyncThunk(
+  "post/chat",
+  async ({ sender, userid}, thunkApi) => {
+    console.log({ sender, userid});
+    try {
+      const res = await fetch("http://localhost:4000/chats/" + sender, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({recipient: userid }),
+      });
+      
+      const chat = await res.json(res)
+      return thunkApi.fulfillWithValue(chat);
      
 
-//     } catch (error) {
-//       thunkApi.rejectWithValue(error.message);
-//     }
-//   }
-// );
+    } catch (error) {
+      thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+
+
+export const createMessage = createAsyncThunk(
+  "post/message",
+  async ({ idCommentaries, userid , commentText}, thunkApi) => {
+    try {
+      const res = await fetch("http://localhost:4000/" , {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userid, commentText }),
+      });
+      const comment = await res.json(res)
+      return thunkApi.fulfillWithValue(comment);
+     
+
+    } catch (error) {
+      thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
 
 
 
 const messageSlice = createSlice({
   name: "message",
   initialState,
-  reducers: {},
+  reducers: 
+{}
+  ,
   extraReducers: (buider) => {
-    buider
-
+    buider.addCase(writeUser, (state, action) =>{
+      state.chatsUserId = action.payload
+    }).addCase(createChat.fulfilled, (state, action) => {
+state.chatsId = action.payload._id
+console.log(action.payload);
+    })
       .addCase(getmessages.pending, (state) => {
         state.messageload = true;
         state.messageerrr = null;

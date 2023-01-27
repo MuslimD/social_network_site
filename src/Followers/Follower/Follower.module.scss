@@ -1,0 +1,51 @@
+.block {
+  box-shadow: 3px  3px 20px rgb(135, 135, 135),-3px  -3px 20px rgb(160, 160, 160);
+ 
+  width: 15vw;
+  border-radius: 1vw;
+  margin-top: 2vw;
+  margin-left: 2%;
+
+  img {
+object-fit: cover;
+    margin-top: 5%;
+    margin-left: 17%;
+    border-radius: 50%;
+    height: 10vw;
+    width: 10vw;
+    overflow: hidden;
+  }
+
+  .content {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+  }
+
+  .buttons {
+  margin-left: 10%;
+    gap: 1vw;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 1vw;
+    .message {
+font-size: 1vw;
+      padding: 0.5vw;
+      color: white;
+cursor: pointer;
+      background-color: blue;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .unfollow {
+      cursor: pointer;
+      font-size: 1vw;
+      padding: 0.5vw;
+      color: white;
+      background-color: rgb(201, 0, 0);
+      border-radius: 5px;
+      border: none;
+    }
+  }
+}
