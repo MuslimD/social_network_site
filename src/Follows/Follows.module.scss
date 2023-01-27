@@ -1,5 +1,11 @@
-.wrapper{
+.wrap {
+    height: 97vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-}
+    overflow: scroll;
+    margin-right: 5%;
+  }
+  .wrap::-webkit-scrollbar{
+      display: none;
+  }

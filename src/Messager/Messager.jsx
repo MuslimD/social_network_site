@@ -7,21 +7,29 @@ import s from "./Messager.module.scss";
 
 const Message = ({ userid }) => {
   const dispatch = useDispatch();
-  const [chatsLogin, setchatsLogin] = useState(undefined);
-  const [removal, setRemoval] = useState(false);
+  const chatsUserId = useSelector((state) => state.messageSlice.chatsUserId);
+  const chatsId = useSelector((state) => state.messageSlice.chatsId);
+  console.log(chatsId);
   const messages = useSelector((state) => state.messageSlice.messages);
   const chats = useSelector((state) => state.messageSlice.chats);
+  const [chatsLogin, setchatsLogin] = useState(chatsUserId);
+  const [removal, setRemoval] = useState("");
   useEffect(() => {
+    if (chatsId !== "") {
+      dispatch(getmessages({ chatsId }));
+    }
     dispatch(getchats({ userid }));
   }, [dispatch]);
 
   return (
     <div className={s.messager}>
-      {removal && (
+      {removal !== "" && (
         <div className={s.removall}>
           <div>Вы точно хотите удалить чат?</div>
-          <button onClick={() => setRemoval(false)}>Отмена</button>
-          <button>Удалить</button>
+          <button className={s.otm} onClick={() => setRemoval("")}>
+            Отмена
+          </button>
+          <button className={s.delete_chat}>Удалить</button>
         </div>
       )}
       <div className={s.chats}>
@@ -72,22 +80,35 @@ const Message = ({ userid }) => {
         })}
       </div>
 
-      <div className={s.messages}>
-        {!chatsLogin ? (
-          <div className={s.not_chat}>Выберите чат!</div>
-        ) : messages.length < 1 ? (
-          <>
+      <div className={s.messages_and_input}>
+        {chatsLogin && (
+          <div className={s.user_info}>
+            <img src={`http://localhost:4000/avatar/${chatsLogin.avatar}`} />
+            <div>{chatsLogin.login}</div>
+          </div>
+        )}
+        <div className={s.messages}>
+          {!chatsLogin ? (
+            <div className={s.not_chat}>Выберите чат!</div>
+          ) : messages.length < 1 ? (
             <div className={s.not_chat}>В этом чате нет сообщений</div>
-            <input />
-            <button>Отправить</button>
-          </>
-        ) : (
+          ) : (
+            messages.map((item) => {
+              return (
+                <div
+                  className={item.sender === userid ? s.message_my : s.message}
+                >
+                  {item.text}
+                </div>
+              );
+            })
+          )}
+        </div>
+
+        {chatsLogin && (
           <>
-            {messages.map((item) => {
-              return <div className={s.message}>{item.text}</div>;
-            })}
-            <input />
-            <button>Отправить</button>
+            <input className={s.message_input} />
+            <button className={s.message_button}>Отправить</button>
           </>
         )}
       </div>

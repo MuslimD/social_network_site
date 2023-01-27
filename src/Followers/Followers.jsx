@@ -1,5 +1,5 @@
 import React from "react";
-import Follow from "../Follow/Follow";
+import Follower from "./Follower/Follower";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { followersget } from "../features/followersSlice";
@@ -16,7 +16,7 @@ const Followers = ({ userid }) => {
   return (
     <div className={s.wrap}>
       {followers.map((item) => {
-        return <Follow user={item} key={item._id}/>;
+        return <Follower userid={userid} user={item} key={item._id} />;
       })}
     </div>
   );
