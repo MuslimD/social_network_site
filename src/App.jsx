@@ -26,6 +26,7 @@ function App() {
             <Route path="/messagepage" element={<Messager  userid={id}/>} />
             <Route path="/followerspage" element={<Followers userid={id} />} />
             <Route path="/followspage" element={<Follows userid={id} />} />
+            <Route path="/followspage" element={<Follows userid={id} />} />
           </Routes>
         </div>
       </>
